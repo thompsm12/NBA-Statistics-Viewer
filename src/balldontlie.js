@@ -16,3 +16,18 @@ export async function fetchTeams() {
   const data = await response.json();
   return data;
 }
+
+export async function fetchPlayersByTeam(teamId) {
+  const response = await fetch(`${API_BASE_URL}/players?team_ids[]=${teamId}&per_page=100`, {
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch players: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return data;
+}

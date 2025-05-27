@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { fetchTeams } from "./balldontlie.js";
 
-const TeamsList = () => {
+const TeamsList = ({ onTeamSelect }) => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
 
   useEffect(() => {
     const loadTeams = async () => {
@@ -28,15 +29,15 @@ const TeamsList = () => {
   return (
     <div>
       <h2>NBA Teams</h2>
-      <ul>
+      {/* <ul>
         {teams.map(team => (
           <li key={team.id}>
             {team.full_name} ({team.abbreviation})
           </li>
         ))}
-      </ul>
+      </ul> */}
 
-    <ul style={{ listStyle: 'none', padding: 0 }}>
+    {/* <ul style={{ listStyle: 'none', padding: 0 }}>
       {teams.map(team => (
         <li key={team.id} style={{ margin: '8px 0' }}>
           <button
@@ -53,15 +54,26 @@ const TeamsList = () => {
           </button>
         </li>
       ))}
-    </ul>
+    </ul> */}
 
-    <select onChange={(e) => console.log(e.target.value)}>
-  {teams.map((team) => (
+    {/* <select onChange={(e) => console.log(e.target.value)}>
+    {teams.map((team) => (
     <option key={team.id} value={team.id}>
       {team.full_name} ({team.abbreviation})
     </option>
   ))}
-</select>
+</select> */}
+
+<h2>Select a Team</h2>
+      <select defaultValue="" onChange={(e) => onTeamSelect(e.target.value)}>
+        <option value="" disabled>Select a team</option>
+        {teams.map((team) => (
+          <option key={team.id} value={team.id}>
+            {team.full_name} ({team.abbreviation})
+          </option>
+        ))}
+      </select>
+
     </div>
     
   );

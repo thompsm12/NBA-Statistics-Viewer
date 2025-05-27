@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chrome-launcher": "^1.2.0",
+    "fs": "^0.0.1-security",
     "node-fetch": "^3.3.2",
+    "puppeteer": "^24.9.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

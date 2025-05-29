@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchPlayersByTeam } from "./balldontlie.js";
-import headshotMap from "./nba_player_headshots.json"; // Make sure this file is present
+import headshotMap from "./headshotMap_clean.json"; // Make sure this file is present
 
 const PlayersList = ({ teamId }) => {
   const [players, setPlayers] = useState([]);
